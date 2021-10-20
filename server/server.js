@@ -9,8 +9,8 @@ const port = process.env.PORT || 3000;
 
 const Post = require('./models/post');
 
-//root route
-server.get('/', (req, res) => res.send('Hello World'))
+//index route
+server.get('/', (req, res) => res.send('Hello World. Have an amazing day!'))
 
 server.post('/', async (req, res) => {
     try {

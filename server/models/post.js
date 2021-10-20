@@ -2,7 +2,7 @@ const { init } = require('../dbConfig');
 const { ObjectId } = require('mongodb');
 
 
-module.exports = class Post {
+class Post {
 
     constructor(data) {
         this.title = data.title;
@@ -11,7 +11,7 @@ module.exports = class Post {
         this.story = data.story;
         this.date = Math.floor(date.getTime() / 1000);
         this.day = date.getDate();
-        this.month = date.getMonth()
+        this.month = date.getMonth();
         this.url = `${data.title.replace(/ /g, "-").toLowerCase()}-${date.getDate()}-${date.getMonth() + 1}`
     }
 
@@ -30,7 +30,7 @@ module.exports = class Post {
 
                 let urlCount = await db.collection('posts').find({ lowerCaseTitle: lowerTitle, day: newPost.day, month: newPost.month }).count();
                 if (urlCount > 0) {
-                    newPost.url += `${urlCount+1}`
+                    newPost.url += `-${urlCount+1}`
                 }
 
                 let postContent = await db.collection('posts').insertOne(newPost)
@@ -45,19 +45,17 @@ module.exports = class Post {
 
 
 
-    static findById(idPost) {
+    static findById(id) {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init();
-                let postContent = await db.collection('posts').find({ url:idPost }).toArray()
-                let post = new Post({...postContent[0], idPost: postContent[0].idPost});
+                let postContent = await db.collection('posts').find({ url:id }).toArray()
+                let post = new Post({...postContent[0], id: postContent[0]._id});
                 resolve (post);
             } catch (err) {
                 reject('Post does not exist');
             }
         })
     }
-
-
-
 }
+module.exports = Post

@@ -1,15 +1,15 @@
-const urlCon = window.location.href;
+const url = window.location.href;
 
-const postTitle = document.getElementById('PostTitle');
+const postTitle = document.getElementById('postTitle');
 const postName = document.getElementById('postName');
 const postStory = document.getElementById('postStory');
 
-if(urlCon.includes('#')) {
-    const idPost = urlCon.split('#').pop();
-    renderPost(idPost);
+if(url.includes('#')) {
+    const id = urlCon.split('#').pop();
+    renderPost(id);
 } else {
-    let postSubmit = document.getElementById('postSubmit');
-    postSubmit.addEventListener('submit', postContent)
+    let publishForm = document.getElementById('publishForm');
+    publishForm.addEventListener('submit', postContent)
 }
 
 async function postContent(e) {
@@ -23,7 +23,7 @@ async function postContent(e) {
     const options = {
         method: 'POST',
         body: JSON.stringify(postContent),
-        headers: { "content-Type": "application/json" }
+        headers: { "Content-Type": "application/json" }
     };
 
     const response = await fetch('http://localhost:3000/', options)
@@ -33,15 +33,16 @@ async function postContent(e) {
     location.reload();
 };
 
-async function getContent(idPost) {
-    const data = await fetch(`http://localhost:3000/${idPost}`)
+async function getContent(id) {
+    const data = await fetch(`http://localhost:3000/${id}`)
     const json = await data.json()
     return json
 }
 
-async function renderPost(idPost) {
+async function renderPost(id) {
     const bodyContent = document.getElementById('bodyContent');
     bodyContent.textContent = ''
+    let postContent
     
     const date = new Date(postContent.date * 1000)
 
@@ -61,7 +62,7 @@ async function renderPost(idPost) {
     postName.textContent = postContent.name
     postName.rel = "name"
     postDate.textContent = formatDate(date)
-    postStory.textContent = postContent.getContent
+    postStory.textContent = postContent.content
 
     post.appendChild(postDate)
     post.appendChild(postTitle)
@@ -70,17 +71,14 @@ async function renderPost(idPost) {
 
     bodyContent.appendChild(post)
     
-
-
-    
 }
 
 function formateDate(date) {
     const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const month = months[date.getMonth()];
-    const day = string(date.getDate()).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
     const year = date.getFullYear();
-    const output = day + `/n` + month + ',' + year;
+    const output = day + `\n` + month + ',' + year;
 
     return output
 }
