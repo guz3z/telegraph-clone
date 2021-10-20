@@ -9,4 +9,4 @@ const init = async () => {
     return client.db(dbName)
 }
 
-module.exports = { init }
+module.exports = { init };
