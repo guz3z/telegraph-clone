@@ -16,8 +16,10 @@ server.post('/', async (req, res) => {
     try {
         const data = req.body;
         const post = await Post.create(data)
+        console.log(post);
         res.status(201).json({post})
     } catch(err) {
+        console.log(err);
         res.status(500).json({err})
     }
 })

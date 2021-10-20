@@ -6,7 +6,8 @@
     "pg": "^8.7.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "name": "server",
   "version": "1.0.0",
@@ -14,5 +15,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
 }

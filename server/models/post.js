@@ -9,10 +9,11 @@ class Post {
         this.lowerCaseTitle = data.title.toLowerCase();
         this.name = data.name;
         this.story = data.story;
-        this.date = Math.floor(date.getTime() / 1000);
-        this.day = date.getDate();
-        this.month = date.getMonth();
-        this.url = `${data.title.replace(/ /g, "-").toLowerCase()}-${date.getDate()}-${date.getMonth() + 1}`
+        let dateObj = new Date();
+        this.date = Math.floor(dateObj.getTime() / 1000);
+        this.day = dateObj.getDate();
+        this.month = dateObj.getMonth();
+        this.url = `${data.title.replace(/ /g, "-").toLowerCase()}-${dateObj.getDate()}-${dateObj.getMonth() + 1}`
     }
 
     static create({title, name, story}) {
