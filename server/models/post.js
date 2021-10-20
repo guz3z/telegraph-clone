@@ -50,7 +50,7 @@ module.exports = class Post {
             try {
                 const db = await init();
                 let postContent = await db.collection('posts').find({ url:id }).toArray()
-                let post = new Post({...postContent[0], idPost: postContent[0].id});
+                let post = new Post({...postContent[0], id: postContent[0]._id});
                 resolve (post);
             } catch (err) {
                 reject('Post does not exist');
