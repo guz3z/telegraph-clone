@@ -5,7 +5,10 @@ if(url.includes('#')) {
 } else {
     let form = document.getElementById('postForm');
     form.addEventListener('submit', postData)
+
 }
+
+
 
 async function postData(e) {
     e.preventDefault();
@@ -83,6 +86,7 @@ async function renderPost(id) {
     section.appendChild(post)
     
 }
+
 
 function formatDate(date) {
     const monthNames = ["January", "February", "March", "April", "May", "June",

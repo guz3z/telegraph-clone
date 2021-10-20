@@ -1,17 +1,23 @@
 {
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+
+  "scripts": {
+    "start": "nodemon --legacy-watch index.js"
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^4.0.0"
   },
-  "scripts": {
-    "start": "nodemon --legacy-watch index.js"
-  },
-  "name": "server",
-  "version": "1.0.0",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
 }

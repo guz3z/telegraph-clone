@@ -71,4 +71,11 @@ address time::before {
 }
 
 
+.show {
+    opacity: 1 !important;
+}
 
+.flex-column {
+    flex-direction: column;
+    width: 700px;
+}
