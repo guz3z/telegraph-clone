@@ -8,8 +8,8 @@ if(urlCon.includes('#')) {
     const idPost = urlCon.split('#').pop();
     renderPost(idPost);
 } else {
-    let publishForm = document.getElementById('publishForm');
-    publishForm.addEventListener('submit', postContent)
+    let postSubmit = document.getElementById('postSubmit');
+    postSubmit.addEventListener('submit', postContent)
 }
 
 async function postContent(e) {
