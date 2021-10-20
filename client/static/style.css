@@ -57,7 +57,18 @@ footer {
 
 
 
+address {
+    font-size: 15px;
+    line-height: 18px;
+    color: #79828B;
+    margin: 12px 21px;
+    font-style: normal;
+}
 
+address time::before {
+    content: '\2022';
+    padding: 0 7px;
+}
 
 
 

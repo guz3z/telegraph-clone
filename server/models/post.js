@@ -2,7 +2,7 @@ const { init } = require('../dbConfig');
 const { ObjectId } = require('mongodb');
 
 
-module.exports = class Post {
+class Post {
 
     constructor(data) {
         this.title = data.title;
@@ -57,7 +57,5 @@ module.exports = class Post {
             }
         })
     }
-
-
-
 }
+module.exports = Post
