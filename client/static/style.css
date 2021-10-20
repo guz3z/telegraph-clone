@@ -31,7 +31,6 @@
     border-bottom-style: hidden;
 }
 
-
 .story {
     display: block;
     font-size: 1.5em;
@@ -46,7 +45,6 @@
     border-left-style: hidden;
     border-bottom-style: hidden;
 }
-
 
 .button {
     float: right;
@@ -75,3 +73,11 @@
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
 
 }
+
+
+
+
+
+
+
+
