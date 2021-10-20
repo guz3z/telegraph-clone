@@ -17,7 +17,7 @@ services:
     command: bash -c "npm install && npm start"
 
   db:
-    image: mongo:4.4
+    image: mongo:4.0
     volumes:
       - "dbdata:/var/lib/mongodb/data"
     environment: 
