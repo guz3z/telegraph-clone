@@ -5,7 +5,7 @@ const postName = document.getElementById('postName');
 const postStory = document.getElementById('postStory');
 
 if(url.includes('#')) {
-    const id = urlCon.split('#').pop();
+    const id = url.split('#').pop();
     renderPost(id);
 } else {
     let publishForm = document.getElementById('publishForm');
@@ -28,8 +28,9 @@ async function postContent(e) {
 
     const response = await fetch('http://localhost:3000/', options)
     const json = await response.json()
-
-    window.location.replace(`/#${json.post}`);
+    console.log(json);
+    console.log(postContent);
+    window.location.replace(url+`#${json.post}`);
     location.reload();
 };
 
@@ -42,9 +43,12 @@ async function getContent(id) {
 async function renderPost(id) {
     const bodyContent = document.getElementById('bodyContent');
     bodyContent.textContent = ''
-    let postContent
+    let postContent = await getContent(id)
+    postContent = postContent.post;
     
+    console.log(postContent)
     const date = new Date(postContent.date * 1000)
+    console.log(String(postContent.date * 1000))
 
     const post = document.createElement('div')
     const postTitle = document.createElement('h1')
@@ -62,7 +66,7 @@ async function renderPost(id) {
     postName.textContent = postContent.name
     postName.rel = "name"
     postDate.textContent = formatDate(date)
-    postStory.textContent = postContent.content
+    postStory.textContent = postContent.story
 
     post.appendChild(postDate)
     post.appendChild(postTitle)
@@ -73,7 +77,7 @@ async function renderPost(id) {
     
 }
 
-function formateDate(date) {
+function formatDate(date) {
     const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const month = months[date.getMonth()];
     const day = String(date.getDate()).padStart(2, '0');
