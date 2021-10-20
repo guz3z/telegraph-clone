@@ -1,6 +1,7 @@
 ::placeholder {
     opacity:0.4;
 }
+
 .title{
     display: block;
     font-size: 2em;
@@ -29,6 +30,7 @@
     border-left-style: hidden;
     border-bottom-style: hidden;
 }
+
 .story {
     display: block;
     font-size: 1.5em;
@@ -43,6 +45,7 @@
     border-left-style: hidden;
     border-bottom-style: hidden;
 }
+
 .button {
     float: right;
     font-size: 20px;
@@ -68,7 +71,9 @@
     border-width: 2px;
     border-radius: 12px;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+
 }
+
 
 
 
