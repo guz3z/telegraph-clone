@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.title,
+.name,
+.story{
+    display: block;
+    width: 50%;
+    margin: 3rem 20%;
+    border: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    outline: none;
+
+}
+.title {
+    font-size: 2rem;
+}
+
+.name {
+    font-size: 1.5rem;
+}
+
+.story {
+    font-size: 1rem;
+}
+
+.submit-btn {
+    position: absolute;
+    font-size: 17px;
+    font-weight: 600;
+    border: 2px solid #333;
+    border-radius: 16px;
+    cursor: pointer;
+    margin: 0 0 15px;
+    background-color: #fff;
+    padding: 8px 12px;
+    left: 50%;
+    top:0;
+    right: 0;
+    margin: 46px 0 0 376px;
+}
+
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: rgb(160, 160, 160);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+
+address {
+    font-size: 15px;
+    line-height: 18px;
+    color: #79828B;
+    margin: 12px 21px;
+    font-style: normal;
+}
+
+address time::before {
+    content: '\2022';
+    padding: 0 7px;
+}
+
+
+
